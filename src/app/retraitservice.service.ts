@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RetraitserviceService {
-  distant = "https://backommomo.herokuapp.com/";
+  distant = "https://backommomo.herokuapp.com/retrait/";
   local = "http://localhost:8080/retrait/";
 
 
