@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RetraitserviceService {
-  distant = "https://app-programmation-dynamique.herokuapp.com/";
+  distant = "https://backommomo.herokuapp.com/";
   local = "http://localhost:8080/retrait/";
 
 
   constructor(private http: HttpClient) { }
 
   getRetrait(type: string, montant: number) {
-    return this.http.get(this.local + type + "?montant=" + montant);
+    return this.http.get(this.distant + type + "?montant=" + montant);
   }
 }
