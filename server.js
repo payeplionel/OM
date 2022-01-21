@@ -1,10 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 
-app.use(cors({
-    origin: ['https://om-momo.herokuapp.com/', 'https://www.google.com/']
-}));
-
 var app = express()
 
 
