@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "https://om-momo.herokuapp.com",
+      "secure": false
+    }
+  }
