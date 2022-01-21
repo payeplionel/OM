@@ -1,13 +1,15 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 
-var app = express()
+const app = express();
 
-app.use(cors({
-    origin: '*'
-}));
+app.use(cors());
 
-app.use(express.static(__dirname + '/dist/om'));
-app.get('/*', cors(), function(req,res) {
-res.sendFile(path.join(__dirname+'/dist/om/index.html'));});
+app.use(express.static('./dist/fonetApp'));
+
+app.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/dist/fonetApp/index.html'));
+});
+
 app.listen(process.env.PORT || 8080);
