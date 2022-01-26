@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -27,7 +29,9 @@ registerLocaleData(localeFr, 'fr');
     MatSelectModule,
     MatGridListModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RetraitserviceService } from '../retraitservice.service';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 
 @Component({
   selector: 'app-index',
@@ -24,7 +19,7 @@ export class IndexComponent implements OnInit {
   tabRetrait: any;
   attention = "";
   concurence = "";
-
+  selected = 'om';
 
 
   constructor(private retraiservice: RetraitserviceService) {

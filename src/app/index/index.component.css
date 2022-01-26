@@ -2,8 +2,9 @@
 .content {
     margin-left: auto;
     margin-right: auto;
-    width: 60vw;
-    margin-top: 10vh;
+    max-width: 60vw;
+    padding-top: 5vh;
+    max-height: min-content;
 }
 
 h1 {
@@ -13,6 +14,17 @@ h1 {
 
 h2 {
     font-size: large;
+}
+
+.coupures {
+    margin-top: 1vh;
+    background-color: black;
+}
+
+.coupures>div:first-child>h2,
+.coupures>div:nth-child(3)>h4,
+.coupures>div:nth-child(3)>ul {
+    color: white;
 }
 
 .orange:hover {
@@ -28,13 +40,13 @@ h2 {
 }
 
 .yell {
-    background-color: skyblue  ;
+    background-color: skyblue;
 }
-
 
 .solution-block {
     min-height: 25vh;
     padding: 10px;
+    animation: entrance 2s ease 0s 1 normal forwards;
 }
 
 .choice {
@@ -49,16 +61,48 @@ h2 {
     padding-top: 15px;
 }
 
-.block-om{
-    min-height: 160vh;
-    background-image: url(../../assets/img/orange.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
 }
 
-.block-momo{
-    min-height: 160vh;
-    background-image: url(../../assets/img/momo.png);
-    background-repeat: no-repeat;
+@keyframes entrance {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
+@media screen and (max-width: 768px) {
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80vw;
+        margin-top: 10vh;
+        transition: .25s ease-in-out;
+    }
+    .choice {
+        width: 80vw;
+        transition: .25s ease-in-out;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 95vw;
+        margin-top: 10vh;
+        transition: .25s ease-in-out;
+    }
+    .choice {
+        width: 95vw;
+        transition: .25s ease-in-out;
+    }
 }

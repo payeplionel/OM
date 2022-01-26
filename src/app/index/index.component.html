@@ -1,12 +1,12 @@
 <div class="content">
     <h1>Tarification optimale pour orange money et mobile money</h1>
     <h2>Calculer les frais de votre transaction</h2>
-    <h3>Avec notre simulation obtenez les meilleurs frais en fonction de votre opérateur</h3>
+    <h3>Simuler, et obtenez les meilleurs frais de retrait en fonction de votre opérateur</h3>
     <div>
         <form>
             <mat-form-field appearance="fill" class="choice">
                 <mat-label>Selectionner l'opérateur</mat-label>
-                <mat-select disableRipple>
+                <mat-select [(value)]="selected">
                     <mat-option value="om" class="orange" (click)="changeom()">Orange Money</mat-option>
                     <mat-option value="momo" class="yellow" (click)="changemomo()">Mobile Money</mat-option>
                 </mat-select>
@@ -23,47 +23,48 @@
                 </div>
                 <div class="tile is-child is-1"></div>
                 <div class="tile is-child is-4">
-                    <h2>Frais de retrait optimal</h2> 
+                    <h2>Frais de retrait optimal</h2>
                 </div>
             </div>
 
             <div class="tile is-parent">
                 <div class="tile is-child">
-                   <input class="input is-large" (keyup)="onKey($event)" type="number" id="inpt"/>
+                    <input class="input is-large" (keyup)="onKey($event)" type="number" id="inpt" />
                 </div>
                 <div class="tile is-child is-1"></div>
                 <div class="tile is-child frais is-4">
-                    <h1>{{frais | currency:'XAF':'symbol':'4.2-2':'fr'}}</h1> 
+                    <h1>{{frais | currency:'XAF':'symbol':'4.2-2':'fr'}}</h1>
                 </div>
             </div>
 
             <div class="tile is-parent">
-                <div class="tile is-child">
-                   <h2>Vous devez effectuer {{nombreRetrait}} retrait(s)</h2>
-                </div>
-                <div class="tile is-child is-1"></div>
-                <div class="tile is-child">
-                    <h4>Coupure(s):</h4>
-                    <ul>
-                        <li *ngFor="let sommes of tabRetrait">{{ sommes.retrait | currency:'XAF':'symbol':'4.2-2':'fr' }}</li>
-                    </ul>
+                <div class="columns">
+                    <div class="column">
+                        <span class="has-text-warning">{{attention}}</span>
+                        <span class="has-text-warning">{{concurence}}</span>
+                    </div>
+                    <div class="column">
+
+                    </div>
                 </div>
             </div>
-            <div class="tile is-parent">
-                <span class="has-text-warning">{{attention}}</span>
-                <span class="has-text-warning">{{concurence}}</span>
-            </div>
-        </div>  
+        </div>
     </div>
 
-    <div class="block-om" *ngIf="option == 'Orange Money';else momo">
-        
-    </div>
-    <ng-template #momo>
-        <div class="block-momo">
-        
+    <ng-template [ngIf]="nombreRetrait!=0">
+        <div class="coupures tile is-parent">
+            <div class="tile is-child">
+                <h2>Vous devez effectuer {{nombreRetrait}} retrait(s)</h2>
+            </div>
+            <div class="tile is-child is-1"></div>
+            <div class="tile is-child">
+                <h4>Coupure(s):</h4>
+                <ul>
+                    <li *ngFor="let sommes of tabRetrait">{{ sommes.retrait | currency:'XAF':'symbol':'4.2-2':'fr' }}
+                    </li>
+                </ul>
+            </div>
         </div>
     </ng-template>
-    
 
 </div>
