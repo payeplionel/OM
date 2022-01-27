@@ -28,10 +28,6 @@ body {
     animation-duration: 5s;
 }
 
-h1 {
-    font-family: monospace;
-}
-
 @keyframes slide {
     0% {
         transform: translateX(-25%);
