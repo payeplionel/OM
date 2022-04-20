@@ -23,6 +23,45 @@ export class IndexComponent implements OnInit {
   inpt='';
   gain='';
 
+  coupures = [{
+    id: '25',
+    value: '25',
+   },
+   {
+    id: '50',
+    value: '50',
+   },
+   {
+    id: '100',
+    value: '100',
+   },
+   {
+    id: '500',
+    value: '500',
+   },
+   {
+    id: '1000',
+    value: '1000',
+   },
+   {
+    id: '2000',
+    value: '2000',
+   },
+   {
+    id: '5000',
+    value: '5000',
+   },
+   {
+    id: '10000',
+    value: '10000',
+   }]
+
+   selectedCoupures!: number;
+
+
+
+
+
 
   constructor(private retraiservice: RetraitserviceService) {
   }
@@ -56,7 +95,7 @@ export class IndexComponent implements OnInit {
   onKey(event: any) {
     if ((event.target.value >= 100) && (event.target.value % 5 == 0) && (this.isInt(event.target.value) == true) && (event.target.value <= 500000)) {
       if (this.option == "Orange Money") {
-        let resp = this.retraiservice.getRetrait("om", event.target.value);
+        let resp = this.retraiservice.getRetrait("om", event.target.value, this.selectedCoupures);
         resp.subscribe(data => {
           this.retrait = data;
           this.frais = this.retrait.frais;
@@ -83,7 +122,7 @@ export class IndexComponent implements OnInit {
         this.attention = "";
       }
       else if ((this.option == "Mobile Money") && (event.target.value % 5 == 0) && (this.isInt(event.target.value) == true) && (event.target.value <= 500000)) {
-        let resp = this.retraiservice.getRetrait("momo", event.target.value);
+        let resp = this.retraiservice.getRetrait("momo", event.target.value, this.selectedCoupures);
         resp.subscribe(data => {
           this.retrait = data;
           this.frais = this.retrait.frais;

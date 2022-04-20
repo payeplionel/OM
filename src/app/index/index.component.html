@@ -59,6 +59,15 @@
                 <h2>Vous devez effectuer {{nombreRetrait}} retrait(s)</h2>
             </div>
             <div class="tile is-child is-1"></div>
+            <div class="tile is-child is-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Coupures</mat-label>
+                    <mat-select [(value)]="selectedCoupures">
+                        <mat-option *ngFor="let coupure of coupures" [value]="coupure.id">{{coupure.value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="tile is-child is-1"></div>
             <div class="tile is-child">
                 <h4>Coupure(s):</h4>
                 <ul>

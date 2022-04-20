@@ -12,7 +12,7 @@ export class RetraitserviceService {
 
   constructor(private http: HttpClient) { }
 
-  getRetrait(type: string, montant: number) {
-    return this.http.get(this.distant + type + "?montant=" + montant);
+ getRetrait(type: string, montant: number, coupures: number) {
+    return this.http.get(this.distant + type + "?montant=" + montant+"&coupures="+ coupures);
   }
 }
